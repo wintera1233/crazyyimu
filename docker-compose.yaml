@@ -29,4 +29,4 @@ services:
       - /home/yvnc/local_ws/iu_ws/scripts:/home/USERNAME/iu_ws/scripts  # 将本地的 src 目录挂载到容器内
     working_dir: /home/USERNAME/iu_ws
     command: /bin/bash
-    stop_grace_period: 30s
+    stop_grace_period: 1s
