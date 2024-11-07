@@ -21,12 +21,17 @@ services:
   ros2-imu:
     image: wintera1233/ros2-humble-spatial:v1
     container_name: ros2-container
-    tty: true
-    stdin_open: true
-    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY} 
+    device:
+      - /dev/bus/usb
     volumes:
       - /dev:/dev
       - /home/yvnc/local_ws/iu_ws/scripts:/home/USERNAME/iu_ws/scripts  # 将本地的 src 目录挂载到容器内
     working_dir: /home/USERNAME/iu_ws
     command: /bin/bash
     stop_grace_period: 1s
+    tty: true
+    stdin_open: true
+    privileged: true
+    
